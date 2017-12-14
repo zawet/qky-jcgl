@@ -1,0 +1,86 @@
+
+/****
+默认数据存放
+****/ 
+
+define({
+	tcdata:{
+		"2017-12-8":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ],
+            dinner:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:false}
+            ]
+        },
+		"2017-12-11":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:true},
+				{tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:false}
+			
+            ],
+            dinner:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:false}
+            ]
+        },
+		"2017-12-12":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ],
+            dinner:[
+				{tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:true},
+				{tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc09.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc02.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc03.png",tcprice:6,isActive:false}
+            ]
+        },
+        "2017-12-13":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:true},
+				{tcname:"糖醋鲤鱼",tcimg:"jc01.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc02.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc03.png",tcprice:6,isActive:false},
+				{tcname:"糖醋鲤鱼",tcimg:"jc09.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc08.png",tcprice:6,isActive:false}
+            ],
+            dinner:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ]
+		},
+		"2017-12-14":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ],
+            dinner:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ]
+        },
+        "2017-12-15":{
+            lunch:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc04.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc05.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ],
+            dinner:[
+                {tcname:"糖醋鲤鱼",tcimg:"jc07.png",tcprice:6,isActive:true},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false},
+                {tcname:"糖醋鲤鱼",tcimg:"jc06.png",tcprice:6,isActive:false}
+            ]
+        }
+	}
+});

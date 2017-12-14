@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="qky2.ico">
+  <title>就餐管理</title>
+  <link href="js/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+  <!--全课云基础样式覆盖-->
+  <link href="css/iconfont2.0.css" rel="stylesheet">
+  <link href="css/qkybase2.0.css" rel="stylesheet">
+  <link href="css/jcgl.css" rel="stylesheet">
+  <link href="css/quickcss2.0.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="qkybody">
+  <div id="qkynav"></div>
+  <div class="container">
+
+    <div class="qkycadr jc-know clear">
+      <div class="fl jc-know-info">
+        <div class="onet">订餐须知</div>
+        <span>1、当日18:00前预订次日及以后日期的套餐；</span>
+        <span>2、当日18:00前可以修改或取消次日的订餐，超过18:00，不能修改或取消次日的订餐；</span>
+        <span>3、餐费将每周一次进行结算收取；</span>
+      </div>
+      <div class="fr jc-know-cao">
+        <span class="jcok">本周：已订餐</span>
+        <span class="">下周：未订餐</span>
+        <a class="btn btn-success one" href="index_dc.html">我要订餐/修改</a>
+        <a class="btn btn-primary" href="index_history.html">查看订餐历史</a>
+      </div>
+    </div>
+    <div class="qkycadr jc-tcbox">
+      <div class="jc-tcbar clear">
+          <div class="jc-tcweek clear">
+              <a class="fl tcweek-i left"><i class="qkyicon_14">&#xe604;</i>上周</a>
+              <div class="fl tcweek-date"><span><b>此</b>周供应</span><label></label></div>
+              <a class="fl tcweek-i right">下周<i class="qkyicon_14">&#xe6b3;</i></a>
+          </div>
+      </div>
+        
+        <!--新增tab版本-->
+        <table  class="taeble jc-tctab">
+          <thead><tr><th class="oneth">日期星期</th><th>午餐</th><th>晚餐</th></tr></thead>
+          <tbody class="jc-draw-box"></tbody>
+        </table>
+        <div class="jc-unsend">
+          <label>此周餐单未发布！</label>
+          <span>本周餐单会在上周的周六、周日进行发布</span>
+          <span>若本周一还没发布餐单，请及时联系相关人员</span>
+        </div>
+
+
+    </div>
+
+  </div>
+  <div class="footer default">全通教育集团（广东）股份有限公司 版权所有 ©2007-2015</div>
+  <!--模块化js-->
+  <script src="js/sea.js"></script>
+  <script src="js/seaconfig2.0.js"></script>
+  <script>
+    seajs.use(["run"], function (r) {
+      r.index();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="qky2.ico">
+  <title>就餐管理</title>
+  <link href="js/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+  <!--全课云基础样式覆盖-->
+  <link href="css/iconfont2.0.css" rel="stylesheet">
+  <link href="css/qkybase2.0.css" rel="stylesheet">
+  <link href="css/jcgl.css" rel="stylesheet">
+  <link href="css/quickcss2.0.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="qkybody">
+  <div id="qkynav"></div>
+  <div class="container">
+
+    <div class="qkycadr t_c mt10">
+        <div class="h3 ma0 pt20 pb20 ">关瑞荣 同学 共订餐<b class="mian_color">35</b>次  累计费用<b  class="mian_color">100</b>元 其中<b  class="mian_color">30</b>元未支付（已支付）</div>
+    </div>
+    <div class="qkycadr mt10">
+      <div class="jc-tcbar clear">
+        <form class="form-horizontal">
+            <div class="clear">
+              <div class="fl bar-one">关瑞荣 订餐记录</div>
+              <div class="fl bar-two">
+                <div class="form-group mb0">
+                  <label for="search_starttime" class="fl control-label pr0 pl0 pt5">时间段：</label>    
+                  <div class="col-sm-4 pr0">
+                  <div class="qkycalendar_box default"><input type="text" class="form-control qkycalendar_btn" placeholder="开始日期"></div>
+                  </div>
+                  <div class=" pl0 pr0 t_c height30_line co_93 fl">—</div>
+                  <div class="col-sm-4 pl0">
+                    <div class="qkycalendar_box default"><input type="text" class="form-control qkycalendar_btn" placeholder="结束日期"></div>
+                  </div>
+                  <div class="col-sm-2 pl0 pr0">
+                      <div class="dropdown qkydropdown havechoose">
+                        <a class="btn btn-default dropdown-toggle auto" id="dropdownMenu1" data-toggle="dropdown">
+                          <span class="value">全部</span>
+                          <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                          <li role="presentation"><a>全部</a></li>
+                          <li role="presentation"><a>午餐</a></li>
+                          <li role="presentation"><a>晚餐</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="fl bar-three">
+                <div class="form-group mb0 po_r">
+                  <label for="search_include_enclosure" class="col-sm-5 control-label pr0 pl0 pt5">订餐人：</label>
+                  <div class="col-sm-7">
+                    <div class="dropdown qkydropdown havechoose">
+                      <a class="btn btn-default dropdown-toggle auto" id="dropdownMenu1" data-toggle="dropdown">
+                        <span class="value">全部</span>
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a>全部</a></li>
+                        <li role="presentation"><a>本人</a></li>
+                        <li role="presentation"><a>家长</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="fr bar-four">
+                  <a class="btn btn-primary">查询</a>
+                  <a class="btn btn-primary" href="index.html">返回</a>
+              </div>
+            </div>
+          </form>  
+      </div>
+      <div class="jc-wd96">
+      <table class="table table-bordered table-condensed">
+        <thead><tr><th>订餐日期</th><th>午餐/晚餐</th><th>套餐名称</th><th>金额</th><th>订餐人</th></tr></thead>
+        <tbody>
+          <tr><td>2017-12-05【周二】</td><td>午餐</td><td>A餐：烧鸡</td><td>6元</td><td>本人</td></tr>
+          <tr><td>2017-12-05【周二】</td><td>晚餐</td><td>A餐：烧鸡</td><td>6元</td><td>家长</td></tr>
+        </tbody>
+      </table>
+      <div class="qkypage mt20 mb20 page_center"> 
+          <ul class="nav nav-pills"> 
+           <li class="disabled page_prv"><a href="#">上一页</a></li>
+           <li class="active"><a href="#">1</a></li>
+           <li><a href="#">2</a></li>
+           <li><a href="#">...</a></li>
+           <li><a href="#">4</a></li>
+           <li><a href="#">5</a></li>
+           <li class="page_next"><a href="#">下一页</a></li>
+           <li class="form-group mb0 page_input"><input type="text" class="form-control" placeholder="输入页面"></li>
+           <li class="page_input"><a class="btn btn-default">GO</a></li>
+          </ul>
+      </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer default">全通教育集团（广东）股份有限公司 版权所有 ©2007-2015</div>
+
+  
+
+  <!--模块化js-->
+  <script src="js/sea.js"></script>
+  <script src="js/seaconfig2.0.js"></script>
+  <script>
+    seajs.use(["run"], function (r) {
+      r.his();
+    });
+  </script>
+</body>
+
+</html>

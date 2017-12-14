@@ -1,0 +1,74 @@
+@charset "utf-8";
+/* CSS Document */
+ul,li{ list-style: none; padding: 0; margin: 0;}
+
+.btn-primary{ color:#fff; border-color:#ff7200; background-color:#ff7200;}
+.btn-primary:hover,.btn-primary:focus{ background-color:#cf5e07; border-color:#cf5e07; color:#fff;}
+
+.jc-know{ margin-top: 10px; width: 100%; padding: 15px;}
+.jc-know-info{ width: 80%;}
+.jc-know-info .onet{ font-size: 24px; color: #ff7200; margin-bottom: 10px;}
+.jc-know-info  span{ display: block;  color: #737373; line-height: 24px;}
+.jc-know-cao{ width: 20%;}
+.jc-know-cao span{ display: block; text-align: center; color: #ff7200; font-weight: bold;}
+.jc-know-cao span.jcok{ color: #5cb85c;}
+.jc-know-cao .btn{ display: block; width: 80%; margin: 5px auto}
+.jc-know-cao .btn.one{ width: 60%;}
+
+.jc-tcbox{ width:100%; position: relative; margin: 10px 0;}
+.jc-tcbar{ width: 100%; background: #fff; border-bottom: 1px dashed #ddd; padding: 10px 15px;}
+.jc-tcweek{ width:70%; line-height: 30px; margin: 0 auto;}
+.tcweek-i{ width:10%; display: block; background: #f0bb0f; color: #fff; cursor: pointer; text-align: center; border-radius: 4px 0 0 4px;}
+.tcweek-i.right{border-radius:0  4px 4px 0;}
+.tcweek-i:hover{ color: #fff;}
+.tcweek-i.none{ background: #999; cursor: no-drop;}
+.tcweek-date{ width: 80%; text-align: center; background: #f8c331; color: #fff; border-right:1px solid #fff; border-left:1px solid #fff; }
+.tcweek-date span{ font-weight: bold; margin-right: 5px;}
+.tcweek-date label{ margin: 0;}
+
+.jc-tctab{ width:100%; margin: 0 auto 0;}
+.jc-tctab th{ padding: 10px 0; text-align: center; background: #f1f1f1; color: #535353;border-left: 1px solid #ddd;}
+.jc-tctab th.oneth{ border: none;}
+.jc-tctab td{ padding:15px 15px 0; vertical-align: top; border-left: 1px solid #eee; border-bottom:1px solid #eee;  }
+.jc-tctab td.week{ width:15%; vertical-align: middle; padding:15px 0;text-align: center; border-left: none; width: 16%;} 
+.jc-tctab td.week span{ display: block;}
+.jc-tctab tr.old td{ color: #999; background: #f9f9f9;}
+.jc-tctab tr.today {background: #fff}
+.jc-tctab tr.today .week{ color: #ff7200; }
+.jc-tctab td.ul{ width: 42%;}
+.jc-tctab td.ul .cdul{ width:100%; }
+.jc-tctab td.ul .cdul li{ width:25%; position:relative; float:left;border-radius:6px;margin-bottom: 15px; cursor: pointer;}
+.jc-tctab td.ul .cdul li img{ width:90%; margin: 0 auto; border-radius:6px 6px 0 0; display: block;}
+.jc-tctab td.ul .cdul li span.cdname{   width:90%; background:#e7b204; border-radius:0 0 6px 6px; color:#fff; text-align:center; padding:2px 0; margin: -2px auto 0; display: block;}
+.jc-tctab td.ul .cdul li span.cdname{overflow:hidden;text-overflow:ellipsis; white-space:nowrap;}
+.jc-tctab td.ul .cdul li span.cdname b{ display: block;}
+.jc-tctab td.ul .cdul li i{ position:  absolute; width: 40px; height: 40px; line-height: 40px; background: #ff7200; border-radius: 50%;
+     text-align: center; color: #fff; font-size: 30px; display: none; left: 50%; top: 50% ; margin: -20px; }
+.jc-tctab td.ul .cdul li.active i{ display: block;}
+.jc-tctab td.ul .cdul li.active span{ background: #ff7200;}
+.jc-tctab tr.old td.ul .cdul li span.cdname{ background: rgb(228, 174, 126); color: #fff;}
+.jc-tctab tr.old td.ul .cdul li.active span{ background: rgb(201, 112, 11);}
+.jc-tctab tr.old td.ul .cdul li i{ background: rgb(201, 112, 11);}
+
+.jc-unsend{ width: 100%; text-align: center; padding: 10% 0; display: none;}
+.jc-unsend label{ display: block; font-size: 24px; color: #ff7200; line-height: 30px;}
+.jc-unsend span{ display: block; font-size: 14px; color: #737373; line-height: 24px;}
+
+.jc-dcover-time{ line-height: 30px; color: #ff7200; font-weight: bold;} 
+.jc-motitle{ font-size: 16px; color: #ff7200; line-height: 30px; font-weight: bold;}
+.jc-motable label{ font-size: 14px; color: #737373; margin: 0; line-height: 26px;}
+.jc-motips{ color: #d10e0e;line-height: 30px;font-size: 14px;}
+
+.bar-one {width: 13%; color: #ff7200; font-weight: bold; line-height: 30px;}
+.bar-two {width: 52%;}
+.bar-three {width: 20%;}
+
+.jc-wd96{ width: 96%; margin: 2% auto;}
+.jc-tabel4 td{ width: 25% !important;}
+.jc-tjbox{display: none;}
+.jc-tjbox.open{ display: block;}
+
+.jf-ewm{ width: 100%;}
+.jf-ewm img{ width: 80%; display: block; margin: 0 auto;}
+
+

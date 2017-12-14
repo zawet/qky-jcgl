@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="qky2.ico">
+  <title>就餐管理</title>
+  <link href="js/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+  <!--全课云基础样式覆盖-->
+  <link href="css/iconfont2.0.css" rel="stylesheet">
+  <link href="css/qkybase2.0.css" rel="stylesheet">
+  <link href="css/jcgl.css" rel="stylesheet">
+  <link href="css/quickcss2.0.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="qkybody">
+  <div id="qkynav"></div>
+  <div class="container">
+
+    <div class="qkycadr jc-know clear">
+      <div class="fl jc-know-info">
+        <div class="onet">订餐须知</div>
+        <span>1、当日18:00前预订次日及以后日期的套餐；</span>
+        <span>2、当日18:00前可以修改或取消次日的订餐，超过18:00，不能修改或取消次日的订餐；</span>
+        <span>3、餐费将每周一次进行结算收取；</span>
+      </div>
+    </div>
+    <div class="qkycadr jc-tcbox">
+      <div class="jc-tcbar clear">
+        <div class="jc-tcweek clear fl">
+          <a class="fl tcweek-i left none">
+            <i class="qkyicon_14">&#xe604;</i>上周</a>
+          <div class="fl tcweek-date">
+            <span>
+              <b>此</b>周供应</span>
+            <label></label>
+          </div>
+          <a class="fl tcweek-i right">下周
+            <i class="qkyicon_14">&#xe6b3;</i>
+          </a>
+        </div>
+        <div class="fr jc-dcover-time"></div>
+      </div>
+      <table class="taeble jc-tctab">
+        <thead>
+          <tr>
+            <th class="oneth">日期星期</th>
+            <th>午餐</th>
+            <th>晚餐</th>
+          </tr>
+        </thead>
+        <tbody class="jc-draw-box"></tbody>
+      </table>
+      <div class="jc-unsend">
+        <label>此周餐单未发布！</label>
+        <span>本周餐单会在上周的周六、周日进行发布</span>
+        <span>若本周一还没发布餐单，请及时联系相关人员</span>
+      </div>
+      <div class="t_c pt10 pb10">
+        <a class="btn btn-primary surechoose" data-toggle="modal" data-target="#dc">确定订餐</a>
+        <a class="btn btn-primary clearchoose">清除选择</a>
+        <a class="btn btn-primary" href="index.html">返回</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer default">全通教育集团（广东）股份有限公司 版权所有 ©2007-2015</div>
+
+  <div class="modal fade" id="dc" tabindex="-1" role="dialog">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">提示</h4>
+        </div>
+        <div class="modal-body pa15">
+          <div class="jc-motitle">关瑞荣 同学</div>
+          <div class="jc-motable">
+            <label>你的订餐如下：</label>
+            <table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>星期/日期</th>
+                  <th>午餐</th>
+                  <th>晚餐</th>
+                </tr>
+              </thead>
+              <tbody class="jc-motc"></tbody>
+            </table>
+          </div>
+          <div class="jc-motips">请再次确认订餐人的信息及餐单！</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">确定修改</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">返回修改</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!--模块化js-->
+  <script src="js/sea.js"></script>
+  <script src="js/seaconfig2.0.js"></script>
+  <script>
+    seajs.use(["run"], function (r) {
+      r.dc();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*自主日历插件*/
+.qkycalendar_box{ position:relative; background:#fff;border-radius: 4px;}
+.qkycalendar_box input.qkycalendar_btn{ background:none; padding-right:30px; position:relative; z-index:2;}
+.qkycalendar_box:after{ position: absolute; top:0; right:0; width:30px; content:"\e609";font-family:"qkyicon_20" !important;font-size:16px;font-style:normal;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale; line-height:30px; text-align:center; color:#535353;}
+.qkycalendar_box.only_hms:after,.qkycalendar_box.only_hm:after{content:"\e640";font-family:"qkyicon_mian" !important;}
+
+
+.times_control{ line-height:20px; position:relative; padding:5px 15%; margin:0 auto; text-align:center;}
+.times_control .time_chooseicon{ position:absolute; right:5%; top:0; height:30px; display:none;}
+.times_control:hover .time_chooseicon{ display:block;}
+.times_control i{ display:block; line-height:15px; height:15px; font-size:16px; cursor:pointer; color:#ff7200;}
+.times_control i:hover{ color:#737373;color:#cf5e07;}
+
+.qkycalendar{ width:240px; position:absolute; right:0; top:110%; z-index:1003; border-radius:4px;display:none; background:#fff; border:1px solid #d8d8d8;}
+.qkycalendar.po_leftup{ top:auto; left:0; bottom:110%;}
+.qkycalendar.po_leftdown{ left:0; top:110%}
+.qkycalendar.po_rightup{ right:0; bottom:110%;top:auto;}
+
+.qkycalendar_day{ display:none;}
+.qkycalendar_day{ border-right:1px solid #d8d8d8; padding:5px 15px 5px 30px; text-align:center; border-bottom:1px solid #d8d8d8;}
+.qkycalendar_day label{ display:block; color:#ff7200; font-size:40px; line-height:42px; margin:0;}
+.qkycalendar_day span{ display:block; color:#333; line-height:24px;}
+
+.qkycalendar_years{ width:100%; padding:5px 0;}
+/*.qkycalendar_years a{ display:block; cursor:pointer;color:#ff7200; float:left; width:10%; line-height:30px;}
+.qkycalendar_years a:hover{ text-decoration:inherit;color:#ff7200;}
+.qkycalendar_years a i{ font-size:16px;}*/
+.qkycalendar_years>span{ line-height:30px; width:10%;}
+.qkycalendar_years .times_control{ padding:0; box-sizing:border-box;color:#ff7200; width:40%;}
+.qkycalendar_years .times_control input.time_val{ width:60%; height:28px; background:none; border:none; outline:none; box-sizing:border-box; margin-left:35%; padding-left:5%; border:1px solid #fff;}
+.qkycalendar_years .times_control input.time_val:hover{ border-color:#ff7200; border-radius:2px;}
+
+.qkycalendar .qkycalendar_mian{ width:100%;}
+.qkycalendar .qkycalendar_mian .table>thead>tr>th{ padding:7px 0; text-align:center; border:0; background:#ff7200; color:#fff;}
+.qkycalendar_mian .table>thead>tr>th{ padding:7px 0; text-align:center; border:0; background:#f5f5f5;}
+.qkycalendar_mian .table>tbody>tr>td{ border:0; padding:4px 0;text-align:center;}
+.qkycalendar_mian .table>tbody>tr>td a{ color:#737373; display:inline-block; width:30px; height:30px; line-height:28px;text-align:center;border-radius:50%; border:2px solid #fff; cursor:pointer;}
+.qkycalendar_mian .table>tbody>tr>td a:hover{background:#eee;text-decoration:inherit;border-color:#ddd;}
+.qkycalendar_mian .table>tbody>tr>td a.havedata{background:#cf5e07;  color:#fff;border-color:#cf5e07; position:relative;}
+.qkycalendar_mian .table>tbody>tr>td a.havedata:hover{background:#ff7200;border-color:#ff7200;}
+.qkycalendar_mian .table>tbody>tr>td a.today{background:#fff; color:#ff7200; border-color:#ff7200;}
+.qkycalendar_mian .table>tbody>tr>td a.today:hover{background:#ff7200; color:#fff;}
+.qkycalendar_mian .table>tbody>tr>td a.active{background:#cf5e07;  color:#fff;border-color:#cf5e07; position:relative;}
+.qkycalendar_mian .table>tbody>tr>td a.active:hover{background:#ff7200;border-color:#ff7200;}
+.qkycalendar_mian .table>tbody>tr>td a.oldday{ color:#aaa; cursor:not-allowed;background:#fff;border-color:#fff; }
+.qkycalendar_mian .table>tbody>tr>td a.oldday:hover{background:#fff;text-decoration:inherit;border-color:#fff;}
+.qkycalendar_mian .table>tbody>tr>td a.oldday.active{ background:#f5f5f5;}
+
+.qkycalendar_times{ background:#fff; padding: 5px; margin:0; border-top:1px solid #eee; background:#f9f9f9; display:none; border-radius:0 0 4px 4px;}
+.qkycalendar .qkycalendar_ondate{ display:block; background:#ff7200; color:#fff; line-height:26px;}
+.qkycalendar_ondate{ display:none;}
