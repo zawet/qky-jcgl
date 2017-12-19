@@ -80,19 +80,15 @@ define(function(require,exports) {
 			 		//初始化外框
 			 		d_opts.cilckid=$(d_opts.boxid).find(d_opts.cilckid);
 					d_opts.drawid=$(d_opts.boxid).find(d_opts.drawid);
-					d_opts.hoverid=$(d_opts.boxid).find(d_opts.hoverid);
+					//d_opts.hoverid=$(d_opts.boxid).find(d_opts.hoverid);
 					d_opts.position=d_opts.position.split(",");
 					for(var i=0;i<d_opts.position.length;i++){
 					d_opts.drawid.addClass(d_opts.position[i]);
 					}
 					
-					
-					
 					//过滤初始化日期
 					var cleardate=check_date(d_opts);
 					ys=cleardate[0];ms=Number(cleardate[1]);ds=cleardate[2];hs=cleardate[3];mis=cleardate[4];ss=cleardate[5];
-					
-					
 					
 					//初始化日期的显示情况
 					var datestring="";
@@ -112,14 +108,11 @@ define(function(require,exports) {
 					}
 					d_opts.cilckid.val(datestring);
 					
-					
 			 		//外层日历出来已否交互
 					 qkycalendar_mutual(d_opts); 
 			 
 					//年月日数据初始化渲染 
-					
 					qkycalendar_drawymd(ys,ms+1,ds,d_opts.drawid,d_opts.isshowtime,d_opts.clickday,d_opts.isshowym,d_opts.isshowday,d_opts.oldday_set);
-					
 					
 					//时分秒数据初始化渲染 
 					 if(d_opts.isshowtime&&(d_opts.isshowtime=="hm"||d_opts.isshowtime=="hms")){
@@ -128,16 +121,22 @@ define(function(require,exports) {
 						qkycalendar_times(hs,mis,ss,d_opts.drawid,d_opts.isshowtime,d_opts.choosetimes,d_opts.isshowym,d_opts.isshowday);
 					 }
 					 
-					 
-					 
 					 //年月的输入或者点击上下转换时
 					 d_opts.drawid.find(".qkycalendar_years input.time_val").on("focusout",function(){
 							 var thisyear=Number($(this).parents(".qkycalendar_years").find(".year").val());
+							 if(thisyear<1000)thisyear=1970;;//限制只能输入四位数字这些数字
+							 $(this).parents(".qkycalendar_years").find(".year").val(thisyear);
 							 var thismoon=Number($(this).parents(".qkycalendar_years").find(".moon").val());
 							 if(thismoon>12)thismoon=12;if(thismoon<=0)thismoon=1;//限制只能输入1-12这些数字
 							 $(this).parents(".qkycalendar_years").find(".moon").val(thismoon);
 							 qkycalendar_drawymd(thisyear,thismoon,ds,$(this).parents(".qkycalendar"),d_opts.isshowtime,d_opts.clickday,d_opts.isshowym,d_opts.isshowday,d_opts.oldday_set);
-							 $(this).parents(".qkycalendar").prev().val(exports.redate(d_opts.drawid,d_opts.isshowtime,d_opts.isshowym,d_opts.isshowday));
+							 var btn="";
+							 if($(this).parents(".qkycalendar_box").hasClass("s_e")){
+							 	oldday_if($(this).parents(".qkycalendar_box"));
+							 }else{
+							 	btn=$(this).parents(".qkycalendar_box").find(".qkycalendar_btn");
+								btn.val(redate(d_opts.drawid,d_opts.isshowtime,d_opts.isshowym,d_opts.isshowday));
+							 }
 						 });	
 						 
 						d_opts.drawid.find(".qkycalendar_years .time_chooseicon i").on("click",function(){
@@ -163,7 +162,13 @@ define(function(require,exports) {
 							var thisyear=Number($(this).parents(".qkycalendar_years").find(".year").val());
 							var thismoon=Number($(this).parents(".qkycalendar_years").find(".moon").val());
 							qkycalendar_drawymd(thisyear,thismoon,ds,$(this).parents(".qkycalendar"),d_opts.isshowtime,d_opts.clickday,d_opts.isshowym,d_opts.isshowday,d_opts.oldday_set);
-							$(this).parents(".qkycalendar").prev().val(exports.redate(d_opts.drawid,d_opts.isshowtime,d_opts.isshowym,d_opts.isshowday));
+							var btn="";
+							 if($(this).parents(".qkycalendar_box").hasClass("s_e")){
+							 	oldday_if($(this).parents(".qkycalendar_box"));
+							 }else{
+							 	btn=$(this).parents(".qkycalendar_box").find(".qkycalendar_btn");
+								btn.val(redate(d_opts.drawid,d_opts.isshowtime,d_opts.isshowym,d_opts.isshowday));
+							 }	
 						})
 					 
 			})
@@ -174,17 +179,29 @@ define(function(require,exports) {
 			var dates=[];
 			if(c_opts.isinput){//判断是否从输入框获取值来进行初始化 格式yyyy-mm-dd hh:mm:ss
 				var thisval=c_opts.cilckid.val();
+				
 				if(isNull(thisval)!="kong"){
-					var inpymd=thisval.split(" ")[0].split("-");
-					dates.push(Number(inpymd[0]));
-					dates.push(Number(inpymd[1]-1));
-					dates.push(Number(inpymd[2]));
-					if(c_opts.isshowtime){
-						var inphms=thisval.split(" ")[1].split(":");
-						dates.push(Number(inphms[0]));
-						dates.push(Number(inphms[1]));
-						if(c_opts.isshowtime=="hms")
-						dates.push(Number(inphms[2]));
+					if(c_opts.isshowym){
+						var inpymd=thisval.split(" ")[0].split("-");
+						dates.push(Number(inpymd[0]));
+						dates.push(Number(inpymd[1]-1));
+						dates.push(Number(inpymd[2]));
+						if(c_opts.isshowtime){
+							var inphms=thisval.split(" ")[1].split(":");
+							dates.push(Number(inphms[0]));
+							dates.push(Number(inphms[1]));
+							if(c_opts.isshowtime=="hms")
+							dates.push(Number(inphms[2]));
+						}
+					}else{
+						dates.push("");dates.push("");dates.push("");
+						if(c_opts.isshowtime){
+							var inphms=thisval.split(":");
+							dates.push(Number(inphms[0]));
+							dates.push(Number(inphms[1]));
+							if(c_opts.isshowtime=="hms")
+							dates.push(Number(inphms[2]));
+						}
 					}
 			 	}
 			 }else{
@@ -204,14 +221,14 @@ define(function(require,exports) {
 		//外框交互
 		function qkycalendar_mutual(opts){
 			opts.cilckid.attr("isc","no");
-			opts.hoverid.attr("isc","no");
+			//opts.hoverid.attr("isc","no");
 			var huncundrawid= opts.drawid;
 			
 			//除此之外的点击关闭
 			$(document).on("click",":not('.qkycalendar_box')",function(){
 				$(".qkycalendar").slideUp(200);
 				opts.cilckid.removeClass("active").attr("isc","no");
-				opts.hoverid.attr("isc","no");
+				//opts.hoverid.attr("isc","no");
 			})
 			$(".qkycalendar_box").on("click",function(event){
 				event.stopPropagation();
@@ -231,19 +248,7 @@ define(function(require,exports) {
 				}					  
 			});
 			
-			//悬停id的事件			  
-			$(opts.hoverid).hover(function(){
-				$(".qkycalendar_btn_hover").not($(this)).removeClass("active").attr("isc","no").next(".qkycalendar").slideUp(0);
-				if($(this).attr("isc")=="no"){
-					$(this).next(".qkycalendar").slideDown(100);
-					$(this).attr("isc","yes");
-					huncundrawid=$(this).next(".qkycalendar");
-				}else{
-					$(this).next(".qkycalendar").slideUp(100);
-					$(this).attr("isc","no");
-					huncundrawid=$(this).next(".qkycalendar");
-				}			   
-			},function(){});
+			
 		}	
 		
 		//日历整体渲染,输入年月日和渲染id和是否添加数据，是否显示时分秒

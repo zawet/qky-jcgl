@@ -44,7 +44,8 @@ define(function(require,exports) {
         var tweeks=exports.getoneweek(Number(sd[0]),Number(sd[1]),Number(sd[2]),7);//获取一周的所有日期；
         exports.drawWeek(tweeks,$(".jc-draw-box"));//渲染表格
         exports.drawTc(Data.tcdata);//渲染数据    
-    }  
+	}  
+	
 	//宣染数据
 	exports.drawTc= function (data){
         $(".jc-draw-box tr").each(function(i){  
@@ -55,43 +56,94 @@ define(function(require,exports) {
                 if($.inArray(td,keys)!=-1){
 					if(key==td){
 						$(this).addClass("hasdata");
-						joinTc(data[key].lunch,$(this).find(".lunch"));
-						joinTc(data[key].dinner,$(this).find(".dinner"));
+						joinTc(data[key].lunch,$(this).find(".lunch"),true);
+						joinTc(data[key].dinner,$(this).find(".dinner"),true);
 					}
                 }else{
 					$(this).find(".lunch").html("未添加套餐");
 					$(this).find(".dinner").html("未添加套餐");					
 				}
-			}
-			
+			}	
         });
-        function joinTc(tcdata,id){
-            var liHtml="";
-			var src="images/";
-			var az=["A","B","C","D","E","F","G"]
-            for(var i=0;i<tcdata.length;i++){
-				var act="";
-				if(tcdata[i].isActive) act="active";
-				liHtml+='<li class="'+act+'">'+
-				'<img src="'+src+tcdata[i].tcimg+'">'+
-				'<span class="cdname">'+az[i]+"-"+tcdata[i].tcname+'<b>'+tcdata[i].tcprice+'元</b></span>'+
-				'<i class="qkyicon_14">&#xe619;</i>'+
-				'</li>';
-            }
-            id.html(liHtml);
+		exports.showCard(1);
+	}
+
+	function joinTc(tcdata,id,type){
+		var liHtml="";
+		var src="images/";
+		var az=["A","B","C","D","E","F","G"]
+		for(var i=0;i<tcdata.length;i++){
+			var act="";
+			if(type) if(tcdata[i].isActive) act="active";
+			liHtml+='<li class="'+act+'">'+
+			'<img src="'+src+tcdata[i].tcimg+'">'+
+			'<span class="cdname">'+az[i]+"-"+tcdata[i].tcname+'<b>'+tcdata[i].tcprice+'元</b></span>'+
+			'<i class="qkyicon_14">&#xe619;</i>'+
+			'</li>';
 		}
+		id.html(liHtml);
+	}
 
 
-		//判断此周是不是全没数据，没有就显示未发布
-		if($(".hasdata").length<=0){
-			$(".jc-tctab").hide();
-			$(".jc-unsend").show();
+	//初始化周期，渲染初始表格和添加初始化数据
+	exports.jcdistAdd=function(y,m,d){
+        exports.setShowDate(y,m,d);//设置默认显示周的日期
+        var sd=exports.getShowDate();//获取此周开始日期（由星期一开始算一周）
+        var tweeks=exports.getoneweek(Number(sd[0]),Number(sd[1]),Number(sd[2]),7);//获取一周的所有日期；
+        exports.drawWeek(tweeks,$(".jc-draw-box"));//渲染表格
+        exports.drawTcAdd(Data.tcdata);//渲染数据    
+	}  
+	
+	//宣染数据
+	exports.drawTcAdd= function (data){
+        $(".jc-draw-box tr").each(function(i){  
+			var td=$(this).attr("date");
+			var keys=[];
+            for(var key in data){
+				keys.push(key);
+                if($.inArray(td,keys)!=-1){
+					if(key==td){
+						$(this).addClass("hasdata");
+						joinTc(data[key].lunch,$(this).find(".lunch"),false);
+						joinTc(data[key].dinner,$(this).find(".dinner"),false);
+					}
+                }	
+			}
+			addHtml='<li class="add"><i class="qkyicon_14">&#xe616;</i></li>';
+			$(this).find(".lunch").append(addHtml);
+			$(this).find(".dinner").append(addHtml);	
+        });
+	}
 
+	//判断显示哪个模块
+	exports.showCard= function (type){
+		if(type==1){
+			//判断此周是不是全没数据，没有就显示未发布
+			if($(".hasdata").length<=0){
+				$(".jc-tctab").hide();
+				$(".jc-unsend.one").show();
+
+			}else{
+				$(".jc-tctab").show();
+				$(".jc-unsend").hide();
+			}
 		}else{
-			$(".jc-tctab").show();
 			$(".jc-unsend").hide();
+			if($(".old").length==7){
+				$(".jc-tctab").hide();
+				$(".jc-unsend.two").show();
+
+			}else if($(".hasdata").length<=0&&$(".old").length<7){
+				$(".jc-tctab").hide();
+				$(".jc-unsend.one").show();
+			}else{
+				$(".jc-tctab").show();
+				$(".jc-unsend").hide();
+			}
 		}
-    }
+
+	}
+
 //渲染表格
     exports.drawWeek= function (data,id){
         var dayHtml="";

@@ -57,9 +57,6 @@ var opt={
 	]
 }
 
-
-
-
 //二级文件夹页面头部的改变设置
  var second_opts={
 	htmlsrc:"../mould_html/qkynav2.0.html",//头部模板获取异步地址

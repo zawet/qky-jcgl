@@ -33,10 +33,27 @@
         <span>2、当日18:00前可以修改或取消次日的订餐，超过18:00，不能修改或取消次日的订餐；</span>
         <span>3、餐费将每周一次进行结算收取；</span>
       </div>
-      <div class="fr jc-know-cao">
-        <span class="jcok">本周：已订餐</span>
-        <span class="">下周：未订餐</span>
-        <a class="btn btn-success one" href="index_dc.html">我要订餐/修改</a>
+      <div class="fr jc-know-cao clear">
+          <div class=" clear po_r mt10">
+              <div  class="col-sm-4 pr0 pl0 lh30">当前孩子：</div>
+              <div class="col-sm-8  pl0 pr0">
+                <div class="dropdown qkydropdown havechoose">
+                  <a class="btn btn-default dropdown-toggle auto" id="dropdownMenu1" data-toggle="dropdown">
+                    <span class="value">全部</span>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a>全部</a></li>
+                    <li role="presentation"><a>关小女</a></li>
+                    <li role="presentation"><a>关小子</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+        <span class="isdc jcok">本周：已订餐</span>
+        <span class="isdc">下周：未订餐</span>
+        <a class="btn btn-primary one" href="index_dc.html">我要订餐</a>
         <a class="btn btn-primary" href="index_history.html">查看订餐历史</a>
       </div>
     </div>
@@ -54,7 +71,7 @@
           <thead><tr><th class="oneth">日期星期</th><th>午餐</th><th>晚餐</th></tr></thead>
           <tbody class="jc-draw-box"></tbody>
         </table>
-        <div class="jc-unsend">
+        <div class="jc-unsend one">
           <label>此周餐单未发布！</label>
           <span>本周餐单会在上周的周六、周日进行发布</span>
           <span>若本周一还没发布餐单，请及时联系相关人员</span>

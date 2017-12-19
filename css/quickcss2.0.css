@@ -32,7 +32,7 @@
 .t_r{ text-align:right !important;}
 .bor_nb{ border-bottom:none !important;}
 .bor_nt{ border-top:none !important;}
-.atd a:hover,.atd:hover{ text-decoration:inherit; cursor:pointer;}
+.atd a:hover,.atd:hover{ text-decoration:inherit; cursor:pointer;}/*鼠标图标变手指，a标签没下划线*/
 .wd50{width:50%;}
 .wd80{width:80%;}
 .wd100{ width:100%;}

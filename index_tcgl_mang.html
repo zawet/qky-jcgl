@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="qky2.ico">
+  <title>就餐管理</title>
+  <link href="js/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
+  <!--全课云基础样式覆盖-->
+  <link href="css/iconfont2.0.css" rel="stylesheet">
+  <link href="css/qkybase2.0.css" rel="stylesheet">
+  <link href="css/jcgl.css" rel="stylesheet">
+  <link href="css/quickcss2.0.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="qkybody">
+  <div id="qkynav"></div>
+  <div class="container">
+
+      <ul class="nav nav-tabs mt10">
+          <li role="presentation"><a href="index_tcgl.html">套餐设置</a></li>
+          <li role="presentation" class="active"><a href="index_tcgl_mang.html">订餐规则设置</a></li>
+    </ul>
+    <div class="qkycadr mangbox mt0 bor_nt pa15 ba_f5">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label  class="col-sm-2 control-label pr0 pl0 pt5 col-sm-offset-1">订餐频次：</label>
+          <div class="col-sm-8">
+            <div class="radio pt0" id="dayorweek">
+             <label class="radio-qky clear radio-inline pt0 pl0 select" toid="weekchoose"><a class="radio_a fl mr5"><b></b></a><span class="fr ml4">以周为单位</span></label>
+             <label class="radio-qky clear radio-inline pt0" toid="daychoose"><a class="radio_a fl mr5"><b></b></a><span class="fr ml4">以日为单位</span></label>
+            </div>
+          </div>
+       </div>
+       <div class="form-group dctime_choose" id="weekchoose">
+        <label class="col-sm-2 control-label pr0 pl0 col-sm-offset-1">订餐时间：</label>
+        <div class="col-sm-7">
+          <div class="qkycalendar_box only_hm one"><input type="text" class="form-control qkycalendar_btn" disabled value="18:00"></div>
+        </div>
+        <div  class="col-sm-10 col-sm-offset-3 error_color">
+            说明：该时间为次日不能订餐的时限<br/>
+            如设置为18点<br/>
+            A、当前为周二18点前（不含18点），则可订周三至周日的餐<br/>
+            B、当前若为周二18点后（含18点），则只可订周四至周日的餐
+            </div>
+        
+     </div>
+     <div class="form-group dctime_choose yc" id="daychoose" >
+        <label class="col-sm-2 control-label pr0 pl0 col-sm-offset-1">订餐时间：</label>
+        
+            <div class="col-sm-9  clear mb10">
+                  <div class=" t_r fl lh30">午餐订餐时间：</div>
+                  <div class="fl t_c lh30 pl5 pr5 nav_color">起</div>
+                  <div class="col-sm-3 qkycalendar_box only_hm pr0 pl0 lone"><input type="text" class="form-control qkycalendar_btn " disabled value="9:00"></div>
+                  <div class="fl t_c lh30 pl15 pr5 mian_color">终</div>
+                  <div class="col-sm-3 qkycalendar_box only_hm pr0 pl0 ltwo"><input type="text" class="form-control qkycalendar_btn " disabled value="10:00"></div>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 clear">
+                <div class="t_r fl lh30">晚餐订餐时间：</div>
+                <div class="fl t_c lh30 pl5 pr5 nav_color">起</div>
+                <div class="col-sm-3 qkycalendar_box only_hm pr0 pl0 done"><input type="text" class="form-control qkycalendar_btn " disabled value="16:00"></div>
+                <div class="fl t_c lh30 pl15 pr5 mian_color">终</div>
+                <div class="col-sm-3 qkycalendar_box only_hm pr0 pl0 dtwo"><input type="text" class="form-control qkycalendar_btn " disabled value="17:00"></div>
+          </div>
+          <div  class="col-sm-10 col-sm-offset-3 error_color mt10">说明：该时间为每日能订餐的时间段</div>
+    </div>
+
+
+     <div class="form-group">
+      <label  class="col-sm-2 control-label pr0 pl0 pt5 col-sm-offset-1">账单生成时间：</label>
+      <div class="col-sm-8">
+        <div class="radio pt0">
+         <label class="radio-qky clear radio-inline pt0 pl0 select"><a class="radio_a fl mr5"><b></b></a>
+         <div class="qkycalendar_box only_hm two fr ml5"><input type="text" class="form-control qkycalendar_btn "  disabled value="13:00"></div>
+         <span class="fr ml4">周日</span>
+         </label>
+         <label class="radio-qky clear radio-inline pt0" ><a class="radio_a fl mr5"><b></b></a><span class="fr ml4">即刻</span></label>
+        </div>
+      </div>
+   </div>
+   <div class="form-group" >
+    <label class="col-sm-2 control-label pr0 pl0 col-sm-offset-1">限定订餐欠费金额：</label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" value="-1" disabled>
+    </div>
+    <div class="col-sm-10  col-sm-offset-3 error_color">说明：若填写金额，表示当学生欠费等于或超出该金额，则不能再订餐（-1表示不限制）</div>
+ </div>
+
+ <div class="t_c pt10 pb10">
+    <a class="btn btn-primary mang-edit" >编辑</a>
+    <a class="btn btn-primary mang-save yc">保存</a>
+    
+  </div>
+      
+      </form>
+
+
+    </div>
+
+  </div>
+  <div class="footer default">全通教育集团（广东）股份有限公司 版权所有 ©2007-2015</div>
+
+  
+  <!--模块化js-->
+  <script src="js/sea.js"></script>
+  <script src="js/seaconfig2.0.js"></script>
+  <script>
+    seajs.use(["run"], function (r) {
+      r.tcgl_mang();
+    });
+  </script>
+</body>
+
+</html>

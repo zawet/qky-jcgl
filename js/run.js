@@ -1,11 +1,12 @@
 define(function(require,exports) {
     var jq=require("./jq/1.11.1/jquery");
     var bs=require("./bootstrap/3.3.0/js/bootstrap.min");
-    var jq=require("./common_default/nav_add2.0");
+    var nav=require("./common_default/nav_add2.0");
     var fun=require("./common_default/com_function");
 
     var qkycal=require("./plug-in/qky_calendar/qky_calendar2.0");
     var dw=require("./common_cadr/dropdown_havevalue");
+    var rc=require("./common_cadr/radio_checkbox1.2");
     var poptips=require("./common_default/poptips");
     var weekname = new Array("周日","周一","周二","周三","周四","周五","周六");  
 
@@ -77,17 +78,54 @@ define(function(require,exports) {
         opt.navli_j[0].isactive=false;
         opt.navli_j[1].isactive=true;
         $("#qkynav").qkynav(opt);
-        
         fun.jcdist(toy,tom+1,tod);
+        fun.showCard(2);    
         $(".tcweek-i").click(function(){
             var types="";
             if($(this).hasClass("left")) types="prv"; else types="next";
             var tsd=fun.getShowDate();
             var csd=fun.changeweek(Number(tsd[0]),Number(tsd[1]),Number(tsd[2]),types);
-            fun.jcdist(Number(csd[0]),Number(csd[1]),Number(csd[2]));            
-        })   
+            fun.jcdist(Number(csd[0]),Number(csd[1]),Number(csd[2])); 
+            fun.showCard(2);           
+        });
+        poptips.poptips_run($("body"),{modalid:"cjAll",modaltitle:"提示",modalcontent:"共催缴账单记录XX条，是否发送催缴通知？"});   
     }
-    
+
+    exports.tcgl_edit=function(){
+        opt.navli_j[0].isactive=false;
+        opt.navli_j[1].isactive=true;
+        $("#qkynav").qkynav(opt);
+        fun.jcdistAdd(toy,tom+1,tod); 
+        
+        $("body").on("click",".cdul li.add",function(){
+            $('#jc-add').modal('show');
+        })
+
+        
+    }
+    exports.tcgl_mang=function(){
+        opt.navli_j[0].isactive=false;
+        opt.navli_j[1].isactive=true;
+        $("#qkynav").qkynav(opt);
+        $(".mang-edit").click(function(){
+            $(".mang-save").removeClass("yc");
+            $(".mangbox").removeClass("ba_f5");
+            $("input").removeAttr("disabled");
+            rc.radio_run(function(i){});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.one",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.two",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.lone",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.ltwo",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.done",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            qkycal.qkycalendar({boxid:".qkycalendar_box.only_hm.dtwo",isshowtime:"hm",isshowym:false,isinput:true,isdistshowdate:true});
+            $("#dayorweek label").click(function(){
+                var id=$(this).attr("toid");
+                $(".dctime_choose").addClass("yc");
+                $("#"+id).removeClass("yc");
+            });
+        });
+    }
+
     exports.tj=function(){
         opt.navli_j[0].isactive=false;
         opt.navli_j[2].isactive=true;
@@ -134,5 +172,6 @@ define(function(require,exports) {
         qkycal.qkycalendar({boxid:".qkycalendar_box.default"});      
     }
     
- 
+    
+    
 });

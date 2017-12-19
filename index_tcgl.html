@@ -37,8 +37,12 @@
               <div class="fl tcweek-date"><span><b>此</b>周供应</span><label></label></div>
               <a class="fl tcweek-i right">下周<i class="qkyicon_14">&#xe6b3;</i></a>
           </div>
-          <div class="fl height30_line pl10">已发布</div>
-          <div class="fr"><a class="btn btn-primary  mr5">编辑</a><a class="btn btn-primary">发布</a></div>
+          <div class="fl height30_line pl10 app_color fz_we">已发布</div>
+          <div class="fl height30_line pl10 error_color fz_we yc">未发布</div>
+          <div class="fr">
+            <a class="btn btn-primary  mr5" href="index_tcgl_edit.html">编辑</a>
+            <a class="btn btn-primary"data-toggle="modal" data-target="#fabu" >发布</a>
+          </div>
       </div>
         
         <!--新增tab版本-->
@@ -46,9 +50,12 @@
           <thead><tr><th class="oneth">日期星期</th><th>午餐</th><th>晚餐</th></tr></thead>
           <tbody class="jc-draw-box"></tbody>
         </table>
-        <div class="jc-unsend">
+        <div class="jc-unsend one">
           <label>本周餐单还没设置!</label>
           <span>请点击<a href="#">设置餐单</a>进行设置</span>
+        </div>
+        <div class="jc-unsend two">
+            <label class="co_63">时间已过期，不能设置餐单!</label>
         </div>
 
 
@@ -56,6 +63,32 @@
 
   </div>
   <div class="footer default">全通教育集团（广东）股份有限公司 版权所有 ©2007-2015</div>
+
+
+  <div class="modal fade" id="fabu" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-xs" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body pa15  modal_auto  t_c">
+              <h5>餐单发布后将不能修改，你是否确认发布</h5> 
+              <h4></h4><span class="mian_color">2017/12/11-2017/12/17</span>的餐单？</h4> 
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" >确定发布</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close">取消</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
   <!--模块化js-->
   <script src="js/sea.js"></script>
   <script src="js/seaconfig2.0.js"></script>
