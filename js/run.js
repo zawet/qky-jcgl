@@ -6,6 +6,7 @@ define(function(require,exports) {
 
     var qkycal=require("./plug-in/qky_calendar/qky_calendar2.0");
     var dw=require("./common_cadr/dropdown_havevalue");
+    var file=require("./common_cadr/file");
     var rc=require("./common_cadr/radio_checkbox1.2");
     var poptips=require("./common_default/poptips");
     var weekname = new Array("周日","周一","周二","周三","周四","周五","周六");  
@@ -95,18 +96,64 @@ define(function(require,exports) {
         opt.navli_j[0].isactive=false;
         opt.navli_j[1].isactive=true;
         $("#qkynav").qkynav(opt);
-        fun.jcdistAdd(toy,tom+1,tod); 
-        
-        $("body").on("click",".cdul li.add",function(){
-            $('#jc-add').modal('show');
-        })
 
-        
+        fun.jcdistAdd(toy,tom+1,tod); 
+        $("tr.old").remove();
+        var addid="";//菜品添加到星期几去的缓存指引
+        var reid="";//删除那个菜品的缓存指引
+        fun.drawAddCp();//把菜品数据渲染到弹窗里
+
+        //加号点击后
+        $("body").on("click",".cdul li.add",function(){
+            addid=$(this);
+            $('#jc-add').modal('show');
+            
+        });  
+
+       //弹框内交互部分
+            //加到选区的交互
+            $("body").on("click",".onc",function(){
+                $(this).parent().toggleClass("active").find(".cdul_del").hide();
+                $("#jc-adddraw-box .cho .cdul").html("");
+                $("#jc-adddraw-box .cdul li.active").each(function(){
+                    $("#jc-adddraw-box .cho .cdul").append('<li>'+$(this).html()+'</li>');
+                });
+            });
+
+            //确定加入
+            $(".cp_join").click(function(){
+                var newcp=$(".cho .cdul").html();
+                addid.before(newcp);
+                $(".jc-draw-box .cdul_del").show();
+            });
+
+            //删除方面的交互
+            $("body").on("click",".jc_delcp",function(){
+                var yxid=$("#jc-adddraw-box .cho_option .cdul li:not('.active') .cdul_del");
+                if($(this).attr("isc")=="no"){yxid.show();$(this).attr("isc","yes");}
+                else{yxid.hide();$(this).attr("isc","no");}
+            });
+            poptips.poptips_run($("body"),{modalid:"isdel",modaltitle:"提示",modalcontent:"是否确定删除",okeybutton_click:function(){
+                reid.remove();
+            }});
+            poptips.poptips_run($("body"),{modalid:"alldel",modaltitle:"提示",modalcontent:"是否确定删除全部",okeybutton_click:function(){
+                $(".jc-draw-box .cdul li:not('.add')").remove();
+            }});
+
+            $("body").on("click",".cdul_del",function(){
+                $('#isdel').modal('show');
+                reid=$(this).parent();
+            });
+
+        $(".clearAll").click(function(){
+            $('#alldel').modal('show');
+        }); 
     }
     exports.tcgl_mang=function(){
         opt.navli_j[0].isactive=false;
         opt.navli_j[1].isactive=true;
         $("#qkynav").qkynav(opt);
+
         $(".mang-edit").click(function(){
             $(".mang-save").removeClass("yc");
             $(".mangbox").removeClass("ba_f5");

@@ -78,14 +78,14 @@ define(function(require,exports) {
 			liHtml+='<li class="'+act+'">'+
 			'<img src="'+src+tcdata[i].tcimg+'">'+
 			'<span class="cdname">'+az[i]+"-"+tcdata[i].tcname+'<b>'+tcdata[i].tcprice+'元</b></span>'+
-			'<i class="qkyicon_14">&#xe619;</i>'+
+			'<i class="qkyicon_14 onchoose">&#xe619;</i>'+
 			'</li>';
 		}
 		id.html(liHtml);
 	}
 
 
-	//初始化周期，渲染初始表格和添加初始化数据
+	//编辑页初始化渲染
 	exports.jcdistAdd=function(y,m,d){
         exports.setShowDate(y,m,d);//设置默认显示周的日期
         var sd=exports.getShowDate();//获取此周开始日期（由星期一开始算一周）
@@ -104,15 +104,44 @@ define(function(require,exports) {
                 if($.inArray(td,keys)!=-1){
 					if(key==td){
 						$(this).addClass("hasdata");
-						joinTc(data[key].lunch,$(this).find(".lunch"),false);
-						joinTc(data[key].dinner,$(this).find(".dinner"),false);
+						$(this).find(".lunch").html(joinTc_r(data[key].lunch,false));
+						$(this).find(".dinner").html(joinTc_r(data[key].lunch,false));
 					}
                 }	
 			}
-			addHtml='<li class="add"><i class="qkyicon_14">&#xe616;</i></li>';
+			var addHtml='<li class="add"><i class="qkyicon_14">&#xe616;</i></li>';
 			$(this).find(".lunch").append(addHtml);
 			$(this).find(".dinner").append(addHtml);	
         });
+	}
+	//渲染菜品列表（弹窗里的）
+	exports.drawAddCp= function (){
+		var id=$("#jc-adddraw-box");
+		var addTypeHtml='<tr class="cho"><td class="week">已选菜品</td><td class="ul"><ul class="cdul clear"></ul></td></tr>';
+		var addliHtml="";
+		for(var key in Data.cpdata){
+			for(var i=0;i<Data.cpdata[key].length;i++){
+				addliHtml=joinTc_r(Data.cpdata[key],true);
+			}
+			addTypeHtml+='<tr class="cho_option" cptype="'+key+'"><td class="week">'+Data.cpTypeName[key]+'</td><td class="ul"><ul class="cdul clear">'+addliHtml+'</ul></td></tr>';
+		}
+		id.html(addTypeHtml);
+	}
+
+	function joinTc_r(tcdata,type){
+		var liHtml="";
+		var src="images/";
+		var az=["A","B","C","D","E","F","G"]
+		for(var i=0;i<tcdata.length;i++){
+			var act="";
+			if(type) if(tcdata[i].isActive) act="active";
+			liHtml+='<li class="'+act+'"><div class="onc">'+
+			'<img src="'+src+tcdata[i].tcimg+'">'+
+			'<span class="cdname">'+az[i]+"-"+tcdata[i].tcname+'<b>'+tcdata[i].tcprice+'元</b></span>'+
+			'<i class="qkyicon_14 onchoose">&#xe619;</i></div><a class="cdul_del"><i class="qkyicon_14">&#xe618;</i></a>'+
+			'</li>';
+		}
+		return liHtml;
 	}
 
 	//判断显示哪个模块

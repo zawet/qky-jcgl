@@ -45,21 +45,21 @@ ul,li{ list-style: none; padding: 0; margin: 0;}
 .jc-tctab td.ul .cdul li span.cdname{   width:90%; background:#e7b204; border-radius:0 0 6px 6px; color:#fff; text-align:center; padding:2px 0; margin: -2px auto 0; display: block;}
 .jc-tctab td.ul .cdul li span.cdname{overflow:hidden;text-overflow:ellipsis; white-space:nowrap;}
 .jc-tctab td.ul .cdul li span.cdname b{ display: block;}
-.jc-tctab td.ul .cdul li i{ position:  absolute; width: 40px; height: 40px; line-height: 40px; background: #ff7200; border-radius: 50%;
+.jc-tctab td.ul .cdul li i.onchoose{ position:  absolute; width: 40px; height: 40px; line-height: 40px; background: #ff7200; border-radius: 50%;
      text-align: center; color: #fff; font-size: 30px; display: none; left: 50%; top: 50% ; margin: -20px; }
 
-.jc-tctab td.ul .cdul li.active i{ display: block;}
+.jc-tctab td.ul .cdul li.active i.onchoose{ display: block;}
 .jc-tctab td.ul .cdul li.active span{ background: #ff7200;}
 .jc-tctab tr.old td.ul .cdul li span.cdname{ background: rgb(228, 174, 126); color: #fff;}
 .jc-tctab tr.old td.ul .cdul li.active span{ background: rgb(201, 112, 11);}
-.jc-tctab tr.old td.ul .cdul li i{ background: rgb(201, 112, 11);}
+.jc-tctab tr.old td.ul .cdul li i.onchoose{ background: rgb(201, 112, 11);}
 
 
 .jc-tctab tr td.ul .cdul li.add { border: 1px solid #ddd; background: #f9f9f9;}
 .jc-tctab tr td.ul .cdul li.add i{ position: relative; left: 0; top: 0; margin: 0;
      width:100%; text-align: center; height: 100px; line-height: 112px; font-size: 30px; color: #737373; display: block; border: 0; background: none; }
 .jc-tctab tr td.ul .cdul li.add:hover{ background: #fff; border-color: #ff7200;}
-.jc-tctab tr td.ul .cdul li.add:hover i{ color: #ff7200;}
+.jc-tctab tr td.ul .cdul li.add:hover i.onchoose{ color: #ff7200;}
 
 .jc-unsend{ width: 100%; text-align: center; padding: 10% 0; display: none;}
 .jc-unsend label{ display: block; font-size: 24px; color: #ff7200; line-height: 30px;}
@@ -83,28 +83,13 @@ ul,li{ list-style: none; padding: 0; margin: 0;}
 .jf-ewm img{ width: 80%; display: block; margin: 0 auto;}
 
 
-.edittab{ width:100%; margin-top:10px;}
-.edittab td.et_tit{width:10%; background:#e7e7e7; text-align:center;color:#898989; font-size:16px; border-bottom:1px solid #fff;}
-.edittab td.stu{border-left:1px solid #fff; border-bottom:1px solid #e7e7e7; width:40%; }
-.edittab td.tea{border-left:1px solid #e7e7e7;border-bottom:1px solid #e7e7e7;width:40%;  }
-.edittab .e_tit{ width:100%; text-align:center; height:40px; line-height:40px; color:#fff; background:#ffcc1d; font-size:16px; }
-.edittab .e_tit.ischo{ background:#f98222}
-.edittab .cdul{ padding:16px 0 0;}
-.edittab .cdul li{ width:31%; margin-bottom:16px; position:relative; cursor:pointer; float: left;}
-.edittab .cdul li.add{ background:#e7e7e7; color:#fff;  line-height:98px; text-align:center; cursor:pointer;}
-.edittab .cdul li.add i{font-size:26px;}
-.edittab .cdul li span.cdname{background: url(../images/wubg.png);}
-.edittab .tea .e_tit{ background:#26747d;}
-.edittab .tea .cdul li span.cdname{background: url(../images/othbg.png);}
-.cdul_close{ position:absolute; width:30px; height:30px; top:-10px; right:-10px;}
-.cdul_close img{ width:100%;}
+.edittab{ width:100%;}
+.edittab td.ul{ width: 72%; padding: 15px 15px 0;}
+.edittab tr.cho td{background: #fffcf3; }
+.edittab tr.cho td.week{ color:#ff7200;}
+.edittab td.ul .cdul li {width:18%;}
+.cdul_del{position:absolute; width:30px; height:30px; top:0px; right:5px; text-align:center; line-height:26px; background:#d10e0e; border-radius:50%; display: block; }
+.cdul_del i{ font-size: 18px; color:#fff;}
+.cdul_del:hover{ text-decoration: inherit; background:#a30808;}
+.edittab .cdul_del{ display: none;}
 
-.cdul_del{position:absolute; width:30px; height:30px; top:-10px; right:-10px; text-align:center; line-height:26px; background:#fff; border-radius:50%; display:none;}
-.cdul_del i{ font-size:24px; color:#f98222;}
-.cdul_cho{position:absolute; width:100%; height:100%; top:0; right:0; text-align:center;  background: url(../images/bg101.png); border-radius:6px; display:none;}
-.cdul_cho i{ font-size:40px; color:#f98222; padding-top:28px; display:inline-block;}
-
-.edittab.sig .cdul li{ width:16%;}
-.edittab.six .cdul li{ width:18%;}
-.edittab.six .e_tit{height:30px; line-height:30px;}
-.edittab.six td.stu{ background:#f6f6f6; border-bottom:1px solid #fff;}
