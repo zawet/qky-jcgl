@@ -35,7 +35,7 @@ ul,li{ list-style: none; padding: 0; margin: 0;}
 .jc-tctab td{ padding:15px 15px 0; vertical-align: top; border-left: 1px solid #eee; border-bottom:1px solid #eee;  }
 .jc-tctab td.week{ width:15%; vertical-align: middle; padding:15px 0;text-align: center; border-left: none; width: 16%;} 
 .jc-tctab td.week span{ display: block;}
-.jc-tctab tr.old td{ color: #999; background: #f9f9f9;}
+.jc-tctab tr.old td{ color: #999; background: #e1e1e1;}
 .jc-tctab tr.today {background: #fff}
 .jc-tctab tr.today .week{ color: #ff7200; }
 .jc-tctab td.ul{ width: 42%;}
@@ -50,9 +50,10 @@ ul,li{ list-style: none; padding: 0; margin: 0;}
 
 .jc-tctab td.ul .cdul li.active i.onchoose{ display: block;}
 .jc-tctab td.ul .cdul li.active span{ background: #ff7200;}
-.jc-tctab tr.old td.ul .cdul li span.cdname{ background: rgb(228, 174, 126); color: #fff;}
-.jc-tctab tr.old td.ul .cdul li.active span{ background: rgb(201, 112, 11);}
-.jc-tctab tr.old td.ul .cdul li i.onchoose{ background: rgb(201, 112, 11);}
+.jc-tctab tr.old td.ul .cdul li span.cdname{ background:#aaa28a; color: #fff;}
+.jc-tctab tr.old td.ul .cdul li img{ opacity: 0.5;}
+.jc-tctab tr.old td.ul .cdul li.active span{ background: #a18976;}
+.jc-tctab tr.old td.ul .cdul li i.onchoose{ background: #a18976;}
 
 
 .jc-tctab tr td.ul .cdul li.add { border: 1px solid #ddd; background: #f9f9f9;}
@@ -92,4 +93,3 @@ ul,li{ list-style: none; padding: 0; margin: 0;}
 .cdul_del i{ font-size: 18px; color:#fff;}
 .cdul_del:hover{ text-decoration: inherit; background:#a30808;}
 .edittab .cdul_del{ display: none;}
-

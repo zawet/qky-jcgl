@@ -112,7 +112,7 @@ define(function(require,exports) {
 
        //弹框内交互部分
             //加到选区的交互
-            $("body").on("click",".onc",function(){
+            $("body").on("click","#jc-adddraw-box .onc",function(){
                 $(this).parent().toggleClass("active").find(".cdul_del").hide();
                 $("#jc-adddraw-box .cho .cdul").html("");
                 $("#jc-adddraw-box .cdul li.active").each(function(){
