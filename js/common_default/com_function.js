@@ -105,7 +105,7 @@ define(function(require,exports) {
 					if(key==td){
 						$(this).addClass("hasdata");
 						$(this).find(".lunch").html(joinTc_r(data[key].lunch,false));
-						$(this).find(".dinner").html(joinTc_r(data[key].lunch,false));
+						$(this).find(".dinner").html(joinTc_r(data[key].dinner,false));
 					}
                 }	
 			}
@@ -170,7 +170,6 @@ define(function(require,exports) {
 				$(".jc-unsend").hide();
 			}
 		}
-
 	}
 
 //渲染表格
